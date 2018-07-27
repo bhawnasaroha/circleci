@@ -1,3 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.2-stretch-browsers
+    steps:
+      - checkout
+      - run: pip install -r requirements/dev.txt
+
 dependencies:
     override:
         - sudo pip install awscli
@@ -5,4 +14,4 @@ deployment:
   prod:
     branch: master
     commands:
-      - aws s3 sync /home/ubuntu/S3ContinuousDeploy s3://s3awscd --delete
+      - aws s3 sync /home/ubuntu/circleci s3://s3awscd --delete
