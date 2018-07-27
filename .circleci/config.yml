@@ -14,4 +14,4 @@ deployment:
   prod:
     branch: master
     commands:
-      - aws s3 sync /home/ubuntu/circleci s3://s3awscd --delete
+      - aws s3 sync /home/ubuntu/circleci s3://s3circleciaws --delete
